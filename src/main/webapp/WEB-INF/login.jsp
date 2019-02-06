@@ -12,7 +12,7 @@
 </head>
     <jsp:include page="partials/navbar.jsp" />
     <body>
-        <form action="login.jsp" method="post">
+        <form action="/login" method="post">
             Username:<br>
             <input id="username" type="text" name="username"><br>
             Password:<br>

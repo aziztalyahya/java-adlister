@@ -10,8 +10,8 @@
 <nav class="nav">
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="login.jsp">Login JSP</a></li>
-        <li><a href="profile.jsp">Profile JSP</a></li>
+        <li><a href="/login">Login JSP</a></li>
+        <li><a href="/profile">Profile JSP</a></li>
         <li><a href="/count">Counter Servlet</a></li>
     </ul>
 
