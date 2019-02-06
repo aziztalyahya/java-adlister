@@ -2,8 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><%= "some title" %></title>
+    <jsp:include page="/WEB-INF/partials/head.jsp" />
 </head>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <body>
     <c:if test="true">
         <h1>Variable names should be very descriptive</h1>
