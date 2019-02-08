@@ -10,6 +10,12 @@ import java.util.List;
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
-        request.getRequestDispatcher("/ads/index.jsp").forward(request, response);
+        String username = (String) request.getSession().getAttribute("name");
+
+        if (username == null){
+            response.sendRedirect("/login");
+        } else {
+            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+        }
     }
 }
