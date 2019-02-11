@@ -4,12 +4,20 @@ import java.sql.*;
 import com.mysql.cj.jdbc.Driver;
 
 public class ListAdsDao implements Ads {
-    private List<Ad> ads;
 
-    public List<Ad> all() {
-        if (ads == null) {
-            ads = generateAds();
+    List<Ad> ads = new ArrayList<>();
+    public List<Ad> all() throws SQLException {
+        DriverManager.registerDriver(new Driver());
+        Config config = new Config();
+        Connection connection = DriverManager.getConnection(
+                config.getUrl(), config.getUsername(), config.getPassword());
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+        while (rs.next()) {
+            ads.add(new Ad(
+                    rs.getLong("id"),rs.getString("title"),rs.getString("description")));
         }
+
         return ads;
     }
 
