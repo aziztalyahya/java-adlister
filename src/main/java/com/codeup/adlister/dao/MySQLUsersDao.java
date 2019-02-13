@@ -48,7 +48,9 @@ public class MySQLUsersDao implements Users {
                     "SELECT * FROM users WHERE username = ? LIMIT 1"
             );
              stmt.setString(1, username);
-             return extractUser(stmt.executeQuery());
+             ResultSet rs = stmt.executeQuery();
+             rs.next();
+             return extractUser(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding by username.", e);
         }
